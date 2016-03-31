@@ -1,12 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Tasklist</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <h1>Hello!</h1>
-  </body>
-</html>
+
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Task Manager</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/vendor/modernizr.min.js"></script>
+</head>
+<body>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+      <header class="transitions">
+      <h1 class="site-title">TaskManager</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#tasksTab" class="transitions-all" onclick="reloadDOM();" id="tasksTabBtn" role="tab" data-toggle="tab" data-toggle="tooltip" data-placement="bottom" title="Home">
+                <i class="glyphicon glyphicon-home"></i>My Tasks <span id="tasksLength" class="badge"></span>
+              </a>
+            </li>
+            <!-- <li>
+              <a href="">
+                <i class="glyphicon glyphicon-check"></i>Done <span class="badge">2</span>
+              </a>
+            </li> -->
+            <li>
+              <a href="#archiveTab" class="transitions-all" onclick="reloadDOM();" id="archiveTabBtn" role="tab" data-toggle="tab" data-toggle="tooltip" data-placement="bottom" title="Archive">
+                <i class="glyphicon glyphicon-inbox"></i> Archive <span id="archiveLength" class="badge"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#trashTab" class="transitions-all" onclick="reloadDOM();" id="trashTabBtn" role="tab" data-toggle="tab" data-toggle="tooltip" data-placement="bottom" title="Trash">
+                <i class="glyphicon glyphicon-trash"></i> Trash <span id="trashLength" class="badge"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="container">
+        <!-- Tasks Container -->
+        <div class="tab-content">
+          <!-- Tasks Section Tab -->
+          <div class="tab-pane active" id="tasksTab">
+            <!-- New Task Element -->
+            <div class="task clearfix" id="createTask">
+              <input id="task-title" name="task-title" type="text" value="" maxlength="50" placeholder="Add new task">
+              <textarea id="task-body" name="task-body" type="text" value="" placeholder="Content Here!"></textarea>
+              <div class="hiddendiv"></div>
+              <div class="task-controls">
+                <button id="newBtn" type="button" class="btn" onclick="TaskManager.add()"><i class="glyphicon glyphicon-ok"></i>Add Task</button>
+              </div>
+            </div>
+            <ul id="tasks-list" class="tasks-list transitions">
+              <!-- Created Tasks will be created here! -->
+            </ul>
+
+          </div>
+          <!-- Archive Section Tab -->
+          <div class="tab-pane" id="archiveTab">
+            <!-- Archived Tasks will be created here! -->
+            <ul id="archive-list" class="tasks-list">
+              <!-- Created Tasks will be created here! -->
+            </ul>
+          </div>
+          <!-- Trash Section Tab -->
+          <div class="tab-pane" id="trashTab">
+            <!-- Trashed Tasks will be created here! -->
+            <ul id="trash-list" class="tasks-list">
+              <!-- Created Tasks will be created here! -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="alert" class="alert-box alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span></button>
+          <i class="glyphicon glyphicon-bullhorn"></i> <span id="alert-msg"></span></div>
+          <!-- Scripts -->
+          <script src="js/vendor/jquery.min.js"></script>
+          <script src="js/vendor/bootstrap.min.js"></script>
+          <script src="js/app.js"></script>
+          <script src="js/helpers.js"></script>
+        </body>
+        </html>
